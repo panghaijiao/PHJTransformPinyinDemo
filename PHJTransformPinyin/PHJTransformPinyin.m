@@ -15,7 +15,7 @@
     NSMutableString *mutableString = [NSMutableString stringWithString:self];
     CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
     NSString *pinyinString = (NSMutableString *)[mutableString stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale:[NSLocale currentLocale]];
-    return pinyinString;
+    return [pinyinString stringByReplacingOccurrencesOfString:@"'" withString:@""];
 }
 
 @end
